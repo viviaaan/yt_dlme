@@ -6,7 +6,7 @@ function sleep(ms) {
 }
 
 export default function Download({ url, id }) {
-    const [progress, setProgress] = useState(<></>)
+    const [progress, setProgress] = useState({'percent': '0.0%'})
 
     async function progressView() {
         let finished = false;
@@ -14,11 +14,11 @@ export default function Download({ url, id }) {
             await fetch('http://127.0.0.1:3000/progress/' + id, { method: 'POST' }).then(async (response) => {
                 const data = await response.clone().text()
                 if (data === 'finished') {
-                    setProgress(<h1>Finished downloading!</h1>)
+                    setProgress({ 'percent': '100.0%' })
                     finished = true
                 } else {
                     response.json().then((data) => {
-                        setProgress(<Progress progress={data} />)
+                        setProgress(data)
                     })
                 }
             })
@@ -42,7 +42,7 @@ export default function Download({ url, id }) {
     }
 
     return (<div className='mt-10 gap-5 flex flex-col items-center'>
-        {progress}
+        <Progress progress={progress} />
         <button className='text-xl text-black border-solid border-lime-300 bg-lime-300 border-1 rounded-2xl px-3 py-2 hover:cursor-pointer' onClick={downloadVideo} data-url={url}>Download</button>
     </div>)
 }
