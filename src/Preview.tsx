@@ -20,6 +20,7 @@ export default function Preview({ info }) {
         <div className='flex flex-col lg:flex-row mx-[5vw] lg:mx-[10vw] lg:min-h-[20vh] mt-10'>
             <div className='basis-2/3 lg:pr-15'>
                 <div className='text-xl font-semibold'>{info.title}</div>
+                <a href={info.channel_url} target='_blank'>{info.channel}</a>
                 <div className='text-xs mt-3 whitespace-pre-wrap'>{description}</div>
                 <button className='text-sm mt-1 hover:bg-[#333333] hover:cursor-pointer py-1 px-1.5 rounded-2xl' onClick={toggleDescription}>{buttonText}</button>
             </div>

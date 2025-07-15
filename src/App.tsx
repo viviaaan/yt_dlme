@@ -18,7 +18,7 @@ function App() {
         fetch('http://127.0.0.1:3000/preview/' + encodedURL, { method: 'POST' }).then((videoInfo) => {
             videoInfo.json().then((data) => {
                 setPreview(<Preview info={data} />)
-                setDownload(<Download url={encodedURL} id={data.id} />)
+                setDownload(<Download url={encodedURL} id={data.id} title={data.title} />)
             })
         })
     }

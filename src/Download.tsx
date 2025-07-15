@@ -5,7 +5,7 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-export default function Download({ url, id }) {
+export default function Download({ url, id, title }) {
     const [progress, setProgress] = useState({'percent': '0.0%'})
 
     async function progressView() {
@@ -34,7 +34,7 @@ export default function Download({ url, id }) {
                 const url = URL.createObjectURL(blob)
                 const a = document.createElement('a');
                 a.href = url;
-                a.download = 'yourvideo.mkv';
+                a.download =  `${title} (${id}).mkv`;
                 a.click()
 
             })
