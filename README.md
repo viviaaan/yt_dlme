@@ -4,6 +4,8 @@ This is a basic front-end wrapper site for the CLI tool `yt-dlp`.
 
 Created using React, TypeScript and Tailwind CSS. Built using Vite.
 
+[Backend](https://github.com/viviaaan/yt_dlme_backend) for this site is made using Flask and Python.
+
 ## Features
 
 * View video previews
