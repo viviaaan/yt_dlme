@@ -4,7 +4,7 @@ This is a basic front-end wrapper site for the CLI tool `yt-dlp`.
 
 Created using React, TypeScript and Tailwind CSS. Built using Vite.
 
-# Features
+## Features
 
 * View video previews
 * Select download quality
